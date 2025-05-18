@@ -39,6 +39,20 @@ int pop(struct Stack* ptr){
     }
 }
 
+int peek(struct Stack* ptr, int position){
+    if(isEmpty(ptr)){
+        printf("Stack Empty\n");
+        return -1;
+    }
+    else{
+        if(position-1>ptr->top){
+            printf("Index not accessible\n");
+            return -1;
+        }
+        printf("The element is: %d\n", ptr->stack[position-1]);
+    }
+}
+
 int main() {
     struct Stack* stack1 = (struct Stack*)malloc(sizeof(struct Stack));
     stack1->size = 2;
@@ -46,11 +60,8 @@ int main() {
     stack1->stack = (int*)malloc(sizeof(int)*stack1->size);
 
     push(stack1, 10);
-    printf("%d\n", isEmpty(stack1));
     push(stack1, 20);
     push(stack1, 30);
-    pop(stack1);
-    pop(stack1);
-    printf("%d\n", isEmpty(stack1));
-    pop(stack1);
+    peek(stack1, 1);
+    peek(stack1, 3);
 }
