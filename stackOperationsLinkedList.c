@@ -35,15 +35,17 @@ int push(struct Node** head, int data){
     return 0;
 }
 
-int pop(struct Node** head){
+struct Node* pop(struct Node** head){
     if(isEmpty(*head)){
         printf("Stack Underflow\n");
-        return -1;
+        return NULL;
     }
-    struct Node* temp = *head;
-    *head = (*head)->next;
-    free(temp);
-    return 0;
+    else{
+        struct Node* temp = *head;
+        *head = (*head)->next;
+        free(temp);
+        return *head;
+    }
 }
 
 int main(){
