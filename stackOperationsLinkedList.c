@@ -13,7 +13,7 @@ int isEmpty(struct Node* head){
     return 0;
 }
 
-int isFull(struct Node* head){
+int isFull(){
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if(newNode==NULL){
         return 1;
@@ -30,5 +30,5 @@ int main(){
     stack->next->next = NULL;
 
     printf("%d\n", isEmpty(stack));
-    printf("%d\n", isFull(stack));
+    printf("%d\n", isFull());
 }
