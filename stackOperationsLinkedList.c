@@ -22,13 +22,37 @@ int isFull(){
     return 0;
 }
 
+int push(struct Node** head, int data){
+    if(isFull()){
+        printf("Stack Overflow\n");
+        return -1;
+    }
+    struct Node* temp = *head;
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = temp;
+    *head = newNode;
+    return 0;
+}
+
+int pop(struct Node** head){
+    if(isEmpty(*head)){
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    struct Node* temp = *head;
+    *head = (*head)->next;
+    free(temp);
+    return 0;
+}
+
 int main(){
-    struct Node* stack = (struct Node*)malloc(sizeof(struct Node));
-    stack->data = 10;
-    stack->next = (struct Node*)malloc(sizeof(struct Node));
-    stack->next->data = 20;
-    stack->next->next = NULL;
+    struct Node* stack = NULL;
 
     printf("%d\n", isEmpty(stack));
     printf("%d\n", isFull());
+    push(&stack, 10);
+    push(&stack, 20);
+    push(&stack, 30);
+    printf("%d\n", isEmpty(stack));
 }
