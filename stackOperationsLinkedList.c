@@ -18,6 +18,7 @@ int isFull(struct Node* head){
     if(newNode==NULL){
         return 1;
     }
+    free(newNode);
     return 0;
 }
 
