@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//stackTop, peek(), and stackBottom operations are not added becoz they're really easy. So I didn't really put time to code them.
+
 struct Node{
     int data;
     struct Node* next;
@@ -56,5 +58,9 @@ int main(){
     push(&stack, 10);
     push(&stack, 20);
     push(&stack, 30);
+    printf("%d\n", isEmpty(stack));
+    pop(&stack);
+    pop(&stack);
+    pop(&stack);
     printf("%d\n", isEmpty(stack));
 }
