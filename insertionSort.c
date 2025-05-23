@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 void insertionSort(int array[], int size){
     for(int i=1; i<size; i++){
@@ -20,9 +21,16 @@ void printElements(int array[], int size){
 }
 
 int main(){
-    int array[5] = {5, 4, 3, 2, 1};
+    clock_t start, end;
+    int array[100000];
+    for(int i=0; i<100000; i++){
+        array[i] = 100000-i;
+    }
     int size = (sizeof(array)/sizeof(int));
+    start = clock();
     insertionSort(array, size);
+    end = clock();
     printElements(array, size);
+    printf("Shifting time: %f sec\n", (double)(end - start) / CLOCKS_PER_SEC);
     return 0;
 }
