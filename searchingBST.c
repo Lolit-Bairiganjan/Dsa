@@ -42,5 +42,11 @@ int main() {
     p1->right = p1_2;
     p2->left = p2_1;
     p2->right = p2_2;
+    if(searchBST(root, 21)){
+        printf("Key Found! :)\n");
+    }
+    else{
+        printf("Not Found! :(\n");
+    }
     return 0;
 }
